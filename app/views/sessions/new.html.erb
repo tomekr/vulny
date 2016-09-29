@@ -1,18 +1,30 @@
 <% provide(:title, "Sign in") %>
-<h1>Welcome to the Administrative User Management Panel</h3>
-<h2>If you are an admin sign in here, otherwise you shouldn't be here!</h2>
+<h1>Welcome to the HashChat Secure Messaging Platform</h3>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+<div class="container">
+  <%= form_for(:session, url: sessions_path, html: {class: "form-signin"} ) do |f| %>
+    <h2 class="form-signin-heading">Please sign in to continue</h2>
 
-      <%= f.label :username %>
-      <%= f.text_field :username, class: "form-control" %>
+    <%= f.label :username, class: "sr-only" %>
+    <%= f.text_field :username, class: "form-control", placeholder: "Email address" %>
 
-      <%= f.label :password %>
-      <%= f.text_field :password, class: "form-control" %>
+    <%= f.label :password, class: "sr-only" %>
+    <%= f.text_field :password, class: "form-control", placeholder: "Password" %>
 
-      <%= f.submit "Sign in", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+
+    <%= f.submit "Sign in", class: "btn btn-primary" %>
+  <% end %>
 </div>
+
+
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">All messages are hashed using the latest SSL certificate. Relax. Hash. Chat.
+</p>
+  </div>
+</footer>
