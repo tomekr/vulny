@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    username = params[:session][:username]
+    username = Base64.decode64(params[:session][:username])
     password = params[:session][:password]
 
     # First check to make sure the user exists
